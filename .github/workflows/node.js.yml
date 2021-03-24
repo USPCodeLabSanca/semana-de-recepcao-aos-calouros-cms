@@ -1,0 +1,32 @@
+name: Strapi CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Stash git changes
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
+        run: git stash
+
+      - name: Pull git changes
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
+        run: git pull origin main
+
+      - name: Install dependencies
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
+        run: npm install
+
+      - name: Build App
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
+        run: npm run build
+        
+      - name: Restart
+        working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
+        run: pm2 restart semana-de-recepcao-aos-calouros-cms
