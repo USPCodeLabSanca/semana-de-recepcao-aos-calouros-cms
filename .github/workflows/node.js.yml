@@ -26,7 +26,7 @@ jobs:
       - name: Build App
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
         run: npm run build
-        
+
       - name: Restart
         working-directory: /home/calouros/semana-de-recepcao-aos-calouros-cms/
         run: pm2 restart semana-de-recepcao-aos-calouros-cms
