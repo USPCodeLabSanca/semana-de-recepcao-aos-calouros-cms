@@ -15,10 +15,6 @@
       "type": "string",
       "required": true
     },
-    "Descricao": {
-      "type": "string",
-      "required": true
-    },
     "Local": {
       "type": "string",
       "required": true
@@ -33,6 +29,10 @@
     },
     "Fim": {
       "type": "time",
+      "required": true
+    },
+    "Descricao": {
+      "type": "richtext",
       "required": true
     }
   }
